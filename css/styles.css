@@ -1,0 +1,33 @@
+body {
+  background-color: #183B0B;
+  font-style: italic;
+  top: 0px;
+}
+h1 {
+  background-color: #80A672;
+  width: 100%;
+  padding: 15px;
+  top: 0px;
+}
+
+form {
+  background-color: #5D854E;
+  width: 100%;
+  font-size: 20px;
+  padding: 15px;
+}
+
+img {
+  position: fixed;
+  right: 15px;
+}
+
+span {
+  background-color: #5D854E;
+  padding: 15px;
+  width: 100px;
+}
+
+.newSentence {
+  display: none;
+}

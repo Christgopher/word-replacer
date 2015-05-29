@@ -60,6 +60,8 @@ $(function() {
 
     $(".newSentence").text(result);
 
+    $(".newSentence").show();
+
     event.preventDefault();
   })
 })
