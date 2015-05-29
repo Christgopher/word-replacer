@@ -11,4 +11,12 @@ describe('wordReplacer', function() {
   it("works with commas", function() {
     expect(wordReplacer("hello, charles, my old friend", "charles", "matthew")).to.eql("hello, matthew, my old friend")
   });
+
+  it("works with colons", function() {
+    expect(wordReplacer("hello: charles, my old friend", "hello", "greetings")).to.eql("greetings: charles, my old friend")
+  });
+
+  it("works with period", function() {
+    expect(wordReplacer("hello, charles, my old friend.", "friend", "enemy")).to.eql("hello, charles, my old enemy.")
+  });
 });
