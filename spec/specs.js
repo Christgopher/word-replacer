@@ -19,4 +19,8 @@ describe('wordReplacer', function() {
   it("works with period", function() {
     expect(wordReplacer("hello, charles, my old friend.", "friend", "enemy")).to.eql("hello, charles, my old enemy.")
   });
+
+  it("works with capitols", function() {
+    expect(wordReplacer("hello Hello HELLO sup", "hello", "boom")).to.eql("boom boom boom sup")
+  });
 });

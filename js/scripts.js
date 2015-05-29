@@ -1,11 +1,9 @@
 var wordReplacer = function(sentence, oldWord, newWord) {
-  var prePuncArray = [];
   var arrayCounter = 0;
   var commaTracker = [];
   var periodTracker = [];
   var colonTracker = [];
 
-  var finalArray = []
   sentence.split(" ").forEach(function(word) {
     word.split("").forEach(function(letter) {
       if (letter === ",") {
@@ -13,7 +11,7 @@ var wordReplacer = function(sentence, oldWord, newWord) {
       } else if (letter === ".") {
         periodTracker.push(arrayCounter);
       } else if (letter === ":") {
-        colonTracker.push(arrayCounter)
+        colonTracker.push(arrayCounter);
       }
     })
     arrayCounter += 1;
@@ -21,26 +19,29 @@ var wordReplacer = function(sentence, oldWord, newWord) {
 
   sentence = sentence.replace(/[,:.]/g, "");
 
-
+  var prePuncArray = [];
   sentence.split(" ").forEach(function(word) {
-    if (word != oldWord) {
-      prePuncArray.push(word);
-    } else {
+    if (word.toLowerCase() === oldWord.toLowerCase()) {
       if (newWord != "") {
         prePuncArray.push(newWord);
       }
+    } else {
+      prePuncArray.push(word)
     }
   })
+
+
+  var finalArray = []
   var arrayCounter2 = 0;
   prePuncArray.forEach(function(word) {
     if (commaTracker.indexOf(arrayCounter2) > -1) {
-      finalArray.push(word.concat(","))
+      finalArray.push(word.concat(","));
     } else if (periodTracker.indexOf(arrayCounter2) > -1) {
       finalArray.push(word.concat("."));
     } else if (colonTracker.indexOf(arrayCounter2) > -1)  {
       finalArray.push(word.concat(":"));
     } else {
-      finalArray.push(word)
+      finalArray.push(word);
     }
     arrayCounter2 += 1;
   })
