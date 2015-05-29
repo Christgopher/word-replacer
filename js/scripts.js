@@ -3,6 +3,10 @@ var wordReplacer = function(sentence, oldWord, newWord) {
   sentence.split(" ").forEach(function(word) {
     if (word != oldWord) {
       finalArray.push(word);
+    } else {
+      if (newWord != "") {
+        finalArray.push(newWord);
+      }
     }
   })
 
