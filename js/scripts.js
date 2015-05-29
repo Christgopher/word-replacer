@@ -1,13 +1,37 @@
 var wordReplacer = function(sentence, oldWord, newWord) {
-  var finalArray = [];
+  var prePuncArray = [];
+  var arrayCounter = 0;
+  var commaTracker = [];
+  var finalArray = []
+  sentence.split(" ").forEach(function(word) {
+    word.split("").forEach(function(letter) {
+      if (letter === ",") {
+        commaTracker.push(arrayCounter);
+      }
+    })
+    arrayCounter += 1;
+  })
+
+  sentence = sentence.replace(/,/g, "");
+
+
   sentence.split(" ").forEach(function(word) {
     if (word != oldWord) {
-      finalArray.push(word);
+      prePuncArray.push(word);
     } else {
       if (newWord != "") {
-        finalArray.push(newWord);
+        prePuncArray.push(newWord);
       }
     }
+  })
+  var arrayCounter2 = 0;
+  prePuncArray.forEach(function(word) {
+    if (commaTracker.indexOf(arrayCounter2) > -1) {
+      finalArray.push(word.concat(","))
+    } else {
+      finalArray.push(word)
+    }
+    arrayCounter2 += 1;
   })
 
   return finalArray.join(" ");
